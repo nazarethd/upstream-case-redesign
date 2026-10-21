@@ -18,6 +18,12 @@
 :root {
   --side: max(clamp(20px, calc((100vw - 760px) * .155), 280px), calc((100vw - 2000px) / 2));
   --content: calc(100vw - 2 * var(--side));
+  /* text: value at 2000px content / readable floor */
+  --fs-body: clamp(16px, calc(var(--content) * .0105), 21px);
+  --fs-small: clamp(14px, calc(var(--content) * .008), 16px);
+  --fs-label: clamp(12px, calc(var(--content) * .007), 14px);
+  --fs-sub: clamp(19px, calc(var(--content) * .012), 24px);
+  --fs-btn: clamp(15px, calc(var(--content) * .009), 18px);
 }
 @media (max-width: 760px) { :root { --side: 16px; } }
 
@@ -36,9 +42,9 @@
   --xl: clamp(34px, calc(var(--content) * .039), 78px);
   --l: clamp(26px, calc(var(--content) * .021), 42px);
   --m: clamp(20px, calc(var(--content) * .013), 26px);
-  --body: clamp(18px, 1.3vw, 21px);
-  --small: 16px;
-  --label: 14px;
+  --body: var(--fs-body);
+  --small: var(--fs-small);
+  --label: var(--fs-label);
   --media-gap: 20px;   /* same gap between images vertically and horizontally */
 
   color: var(--ink);
@@ -64,6 +70,7 @@ header .container { max-width: none; padding: 0 var(--side); }
 /* main.css tightens the menu to -0.4px, which makes Google Sans Flex look glued together */
 header .nav-stack, header .nav-cta { letter-spacing: .01em; }
 header .nav-stack *, header .nav-cta * { letter-spacing: inherit; }
+header .button-secondary, header .nav-cta a, header .nav-cta a > span, header .nav-item .cols .subnav-list li { font-size: var(--fs-small); }
 
 /* Reading progress */
 .rd-progress { position: fixed; left: 0; right: 0; top: 0; height: 2px; z-index: 101; pointer-events: none; }
@@ -216,6 +223,9 @@ header .nav-stack *, header .nav-cta * { letter-spacing: inherit; }
 /* ---------- Footer: same gutters as the page, no extra rules ---------- */
 footer.e2e .e2e-inner { max-width: none; padding: 0 var(--side); margin: 0; }
 footer.e2e .e2e-subscribe { border-radius: 10px; }
+footer.e2e .e2e-cols, footer.e2e .e2e-f ul li, footer.e2e .e2e-subscribe p { font-size: var(--fs-small); }
+footer.e2e .e2e-subscribe h4 { font-size: var(--fs-sub); }
+footer.e2e .e2e-subscribe .contact-us > span { font-size: var(--fs-btn) !important; }
 footer.e2e .e2e-more-cols::before { display: none; }
 footer.e2e .e2e-f ul li:not(:first-child) { border-left: 0; }
 footer.e2e .e2e-f ul { margin: 0; }
