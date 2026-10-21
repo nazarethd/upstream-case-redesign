@@ -71,9 +71,10 @@ header:not(.top-of-page) .background { background-color: rgba(250, 250, 250, .9)
 /* ---------- Hero ---------- */
 .rd-hero { padding: clamp(32px, 4vw, 56px) 0 0; }
 .rd-metarow { padding-bottom: 14px; }
-.rd-statement { max-width: 17em; margin-top: clamp(28px, 4vw, 56px); }
-.rd-hero-copy { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 20px; margin-top: clamp(28px, 3vw, 44px); }
-.rd-hero-copy p { grid-column: 8 / 13; }
+/* statement left, grey copy right; the copy sits on the statement's last line */
+.rd-hero-top { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 20px; align-items: end; margin-top: clamp(28px, 4vw, 56px); }
+.rd-statement { grid-column: 1 / 8; padding-right: 48px; }
+.rd-hero-copy { grid-column: 8 / 13; padding-bottom: .35em; }
 .rd-facts { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 20px; row-gap: 20px; margin: clamp(40px, 6vw, 88px) 0 var(--space); }
 .rd-fact--s { grid-column: span 2; }
 .rd-fact--m { grid-column: span 3; }
@@ -152,7 +153,9 @@ header:not(.top-of-page) .background { background-color: rgba(250, 250, 250, .9)
   .rd-split > .rd-prose, .rd-split > .rd-quote-body { grid-column: 1 / 13; }
   .rd-prose > * { grid-column: 3 / -1; }
   .rd-prose > .rd-big { grid-column: 1 / -1; grid-row: auto; max-width: 18em; margin-bottom: 32px; padding-right: 0; }
-  .rd-hero-copy p { grid-column: 3 / 13; }
+  .rd-hero-top { display: block; }
+  .rd-statement { padding-right: 0; max-width: 17em; }
+  .rd-hero-copy { margin: 28px 0 0 calc((100% - 220px) / 12 * 2 + 40px); padding-bottom: 0; }
   .rd-fact--s, .rd-fact--m { grid-column: span 6; }
   .rd-block h3 { grid-column: 1 / 13; margin-bottom: 16px; }
   .rd-block-body { grid-column: 3 / 13; }
@@ -161,7 +164,8 @@ header:not(.top-of-page) .background { background-color: rgba(250, 250, 250, .9)
   .rd { padding-top: 70px; --edge: 16px; --gutter: 16px; }
   .rd-prose { display: block; }
   .rd-prose > * { grid-column: auto; }
-  .rd-hero-copy p, .rd-block-body, .rd-fact--s, .rd-fact--m { grid-column: 1 / 13; }
+  .rd-block-body, .rd-fact--s, .rd-fact--m { grid-column: 1 / 13; }
+  .rd-hero-copy { margin-left: 0; }
   .rd-frame--hero { aspect-ratio: 4 / 3; }
   .rd-half { grid-template-columns: 1fr; }
   .rd-half--right > .rd-media { grid-column: auto; }
