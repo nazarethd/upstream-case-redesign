@@ -10,6 +10,26 @@
   }, { rootMargin: '150px 0px' });
   document.querySelectorAll('[data-video]').forEach(function (f) { vio.observe(f); });
 
+  // Long lists: show the first three items, the rest behind a toggle (without JS everything stays visible)
+  document.querySelectorAll('.rd-list').forEach(function (list, i) {
+    var count = list.children.length;
+    if (count <= 4) return;
+    list.id = list.id || 'rd-list-' + i;
+    list.classList.add('rd-list--collapsed');
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'rd-more';
+    btn.setAttribute('aria-controls', list.id);
+    btn.setAttribute('aria-expanded', 'false');
+    btn.textContent = 'Show all ' + count;
+    btn.addEventListener('click', function () {
+      var open = !list.classList.toggle('rd-list--collapsed');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? 'Show less' : 'Show all ' + count;
+    });
+    list.after(btn);
+  });
+
   // Reveal: content is hidden only if it starts below the fold, and a scroll check
   // backs up IntersectionObserver so nothing can stay hidden.
   var targets = [].slice.call(document.querySelectorAll('.rd-media:not(.rd-full:first-child), .rd-block, .rd-list li'));
