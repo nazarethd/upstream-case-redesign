@@ -222,6 +222,9 @@ footer.e2e .e2e-subscribe { border-radius: 10px; }
 footer.e2e .e2e-cols, footer.e2e .e2e-f ul li, footer.e2e .e2e-subscribe p { font-size: var(--fs-small); }
 footer.e2e .e2e-subscribe h4 { font-size: var(--fs-sub); }
 footer.e2e .e2e-subscribe .contact-us > span { font-size: var(--fs-btn) !important; }
+/* the hover label sat beside the visible one and pushed it out of the pill on narrow phones; stack it on top instead */
+footer.e2e .e2e-subscribe .contact-us { position: relative; }
+footer.e2e .e2e-subscribe .contact-us > span.hover-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
 footer.e2e .e2e-more-cols::before { display: none; }
 footer.e2e .e2e-f ul li:not(:first-child) { border-left: 0; }
 footer.e2e .e2e-f ul { margin: 0; }
