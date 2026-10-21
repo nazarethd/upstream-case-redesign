@@ -21,7 +21,7 @@
   /* text: value at 2000px content / readable floor */
   --fs-body: clamp(16px, calc(var(--content) * .0105), 21px);
   --fs-small: clamp(14px, calc(var(--content) * .008), 16px);
-  --fs-label: clamp(12px, calc(var(--content) * .007), 14px);
+  --fs-label: clamp(13px, calc(var(--content) * .007), 14px);
   --fs-sub: clamp(19px, calc(var(--content) * .012), 24px);
   --fs-btn: clamp(15px, calc(var(--content) * .009), 18px);
 }
@@ -30,7 +30,7 @@
 .rd {
   --ink: #262626;
   --ink-2: #5a5a5a;
-  --ink-3: #8a8a8a;
+  --ink-3: #6e6e6e;   /* 4.9:1 on --paper, AA for small text */
   --paper: #fafafa;
   --line: #dedede;
   --accent: #0a8f6a;   /* the only accent */
@@ -217,7 +217,8 @@ header .button-secondary, header .nav-cta a, header .nav-cta a > span, header .n
 footer.e2e .e2e-inner { max-width: none; padding: 0 var(--side); margin: 0; }
 footer.e2e .e2e-subscribe { border-radius: 10px; }
 footer.e2e .e2e-cols, footer.e2e .e2e-f ul li, footer.e2e .e2e-subscribe p { font-size: var(--fs-small); }
-footer.e2e .e2e-subscribe h4 { font-size: var(--fs-sub); }
+footer.e2e .e2e-subscribe .e2e-subscribe-title { margin: 0 0 8px; font-size: var(--fs-sub); font-weight: 500; line-height: 1.2; }
+footer.e2e .e2e-col-h, footer.e2e .e2e-cols .e2e-col strong, footer.e2e .e2e-f ul li, footer.e2e .e2e-f ul li a { color: #5c636c; }
 footer.e2e .e2e-subscribe .contact-us > span { font-size: var(--fs-btn) !important; }
 /* the hover label sat beside the visible one and pushed it out of the pill on narrow phones; stack it on top instead */
 footer.e2e .e2e-subscribe .contact-us { position: relative; }
