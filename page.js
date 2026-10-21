@@ -47,30 +47,31 @@
   });
 })();
 
-// Header: follows the scroll down, slides back in with a background on scroll up.
+// Header: a port of ramotion.com's headerScrollListener. It scrolls away with the page,
+// and on the first scroll up it slides back in whole, with its background.
 (function () {
   var h = document.querySelector('header');
   if (!h) return;
-  var d = { position: 0 };
+  var d = { position: 0 }, release;
   function st() { return window.pageYOffset || document.documentElement.scrollTop || 0; }
+  function endAnimation() { clearTimeout(release); h.classList.remove('animated'); }
   function onScroll() {
     var hh = h.offsetHeight, y = Math.max(0, st()), wh = window.innerHeight;
     if (d.lastScrollTop === undefined) d.lastScrollTop = y;
-    h.classList.toggle('top-of-page', !y);
-    if (!y) { h.classList.remove('bg-showed'); h.style.transform = ''; d.position = 0; }
-    else if (!h.classList.contains('bg-showed') && d.lastScrollTop === 0) h.classList.add('bg-showed');
+    h.classList[y ? 'remove' : 'add']('top-of-page');
+    if (!y) { h.classList.remove('bg-showed'); h.removeAttribute('style'); }
     if (h.classList.contains('animated')) return;
     var delta = y - d.lastScrollTop;
     d.position = Math.min(Math.max(-hh, d.position - delta + (wh - (d.lastWndHeight || wh))), 0);
     if (delta < 0 && d.position + delta === -hh) {
       h.classList.add('animated', 'bg-showed'); d.position = 0;
+      // the site waits for transitionend; the timer covers a transition that never fires
+      clearTimeout(release); release = setTimeout(endAnimation, 400);
     }
     d.lastScrollTop = y; d.lastWndHeight = wh;
     if (y) h.style.transform = 'translateY(' + d.position + 'px)';
   }
-  h.addEventListener('transitionend', function (e) {
-    if (e.target === h) h.classList.remove('animated');
-  });
+  // like the site: any transition inside the header ends the slide-in
+  h.addEventListener('transitionend', endAnimation);
   window.addEventListener('scroll', onScroll, false);
-  onScroll();
 })();

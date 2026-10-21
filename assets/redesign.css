@@ -46,9 +46,8 @@
 :where(.rd) :is(ul, ol) { padding: 0; list-style: none; }
 .rd-wrap { max-width: 2000px; margin: 0 auto; padding: 0 var(--gutter); }
 
-/* Header: stays readable over any content */
+/* Header: behaviour and background come from main.css + page.js, as on ramotion.com */
 header { z-index: 100; }
-header:not(.top-of-page) .background { background-color: rgba(250, 250, 250, .9); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
 
 /* Reading progress */
 .rd-progress { position: fixed; left: 0; right: 0; top: 0; height: 2px; z-index: 101; pointer-events: none; }
@@ -71,10 +70,10 @@ header:not(.top-of-page) .background { background-color: rgba(250, 250, 250, .9)
 /* ---------- Hero ---------- */
 .rd-hero { padding: clamp(32px, 4vw, 56px) 0 0; }
 .rd-metarow { padding-bottom: 14px; }
-/* statement left, grey copy right; the copy sits on the statement's last line */
-.rd-hero-top { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 20px; align-items: end; margin-top: clamp(28px, 4vw, 56px); }
+/* statement left, grey copy right, both from the same top line */
+.rd-hero-top { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 20px; align-items: start; margin-top: clamp(28px, 4vw, 56px); }
 .rd-statement { grid-column: 1 / 8; padding-right: 48px; }
-.rd-hero-copy { grid-column: 8 / 13; padding-bottom: .35em; }
+.rd-hero-copy { grid-column: 8 / 13; padding-top: calc(var(--xl) * .03); }
 .rd-facts { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 20px; row-gap: 20px; margin: clamp(40px, 6vw, 88px) 0 var(--space); }
 .rd-fact--s { grid-column: span 2; }
 .rd-fact--m { grid-column: span 3; }
@@ -155,7 +154,7 @@ header:not(.top-of-page) .background { background-color: rgba(250, 250, 250, .9)
   .rd-prose > .rd-big { grid-column: 1 / -1; grid-row: auto; max-width: 18em; margin-bottom: 32px; padding-right: 0; }
   .rd-hero-top { display: block; }
   .rd-statement { padding-right: 0; max-width: 17em; }
-  .rd-hero-copy { margin: 28px 0 0 calc((100% - 220px) / 12 * 2 + 40px); padding-bottom: 0; }
+  .rd-hero-copy { margin: 28px 0 0 calc((100% - 220px) / 12 * 2 + 40px); padding-top: 0; }
   .rd-fact--s, .rd-fact--m { grid-column: span 6; }
   .rd-block h3 { grid-column: 1 / 13; margin-bottom: 16px; }
   .rd-block-body { grid-column: 3 / 13; }
