@@ -49,12 +49,33 @@
     targets.forEach(function (el) { rio.observe(el); });
   }
 
+  // Hero statement: words get a "selected" highlight one by one as the page scrolls down
+  var stmt = document.querySelector('.rd-statement'), words = [];
+  if (stmt) {
+    var parts = stmt.textContent.trim().split(/\s+/);
+    stmt.textContent = '';
+    parts.forEach(function (w, i) {
+      var s = document.createElement('span');
+      s.className = 'rd-hl' + (i === 0 && w === 'Upstream' ? ' rd-u' : '');
+      s.textContent = w + (i < parts.length - 1 ? ' ' : '');
+      stmt.appendChild(s);
+      words.push(s);
+    });
+  }
+  function highlight() {
+    if (!words.length) return;
+    var range = Math.max(240, stmt.offsetHeight * 0.9);
+    var n = Math.round(Math.min(1, Math.max(0, pageYOffset / range)) * words.length);
+    for (var i = 0; i < words.length; i++) words[i].classList.toggle('is-on', i < n);
+  }
+
   // Reading progress (transform only)
   var bar = document.getElementById('rdProgress');
   function onScroll() {
     var h = document.documentElement.scrollHeight - innerHeight;
     if (bar && h > 0) bar.style.transform = 'scaleX(' + Math.min(1, Math.max(0, pageYOffset / h)) + ')';
     check();
+    highlight();
   }
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', onScroll);
