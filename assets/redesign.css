@@ -18,10 +18,10 @@
 :root {
   --side: max(clamp(20px, calc((100vw - 760px) * .155), 280px), calc((100vw - 2000px) / 2));
   --content: calc(100vw - 2 * var(--side));
-  /* text: value at 2000px content / readable floor */
-  --fs-body: clamp(16px, calc(var(--content) * .0105), 21px);
-  --fs-small: clamp(14px, calc(var(--content) * .008), 16px);
-  --fs-label: clamp(13px, calc(var(--content) * .007), 14px);
+  /* text: grows gently from a 16" laptop (~1300px content) to a 27" monitor (2000px content) */
+  --fs-body: clamp(17px, calc(var(--content) * .0043 + 12.4px), 21px);   /* 18px on 16", 21px on 27" */
+  --fs-small: clamp(15px, calc(var(--content) * .0014 + 13.2px), 16px);  /* 15px on 16", 16px on 27" */
+  --fs-label: clamp(14px, calc(var(--content) * .0014 + 12.2px), 15px);  /* 14px on 16", 15px on 27" */
   --fs-sub: clamp(19px, calc(var(--content) * .012), 24px);
   --fs-btn: clamp(15px, calc(var(--content) * .009), 18px);
 }
