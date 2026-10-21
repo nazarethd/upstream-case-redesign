@@ -91,9 +91,8 @@ header .nav-stack *, header .nav-cta * { letter-spacing: inherit; }
 .rd-statement { grid-column: 1 / 8; padding-right: 48px; }
 .rd-u { text-decoration: underline; text-decoration-thickness: .06em; text-underline-offset: .1em; }
 /* scroll highlight: words read like a text selection */
-.rd-hl { transition: background-color .18s ease, color .18s ease; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.rd-hl { -webkit-box-decoration-break: clone; box-decoration-break: clone; }  /* no fade: words switch instantly */
 .rd-hl.is-on { background-color: var(--ink); color: var(--paper); }
-@media (prefers-reduced-motion: reduce) { .rd-hl { transition: none; } }
 .rd-hero-copy { grid-column: 8 / 13; margin-top: calc(var(--xl) * -.075); }
 .rd-facts { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 20px; row-gap: 20px; margin: clamp(40px, 6vw, 88px) 0 var(--space); }
 .rd-fact--s { grid-column: span 2; }

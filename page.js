@@ -64,7 +64,7 @@
   }
   function highlight() {
     if (!words.length) return;
-    var range = Math.max(240, stmt.offsetHeight * 0.9);
+    var range = Math.max(160, stmt.offsetHeight * 0.6);
     var n = Math.round(Math.min(1, Math.max(0, pageYOffset / range)) * words.length);
     for (var i = 0; i < words.length; i++) words[i].classList.toggle('is-on', i < n);
   }
