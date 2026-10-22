@@ -20,7 +20,7 @@
   --content: calc(100vw - 2 * var(--side));
   /* text: grows gently from a 16" laptop (~1300px content) to a 27" monitor (2000px content) */
   --fs-body: clamp(17px, calc(var(--content) * .0043 + 12.4px), 21px);   /* 18px on 16", 21px on 27" */
-  --fs-small: clamp(15px, calc(var(--content) * .0014 + 13.2px), 16px);  /* 15px on 16", 16px on 27" */
+  --fs-small: 16px;  /* secondary reading text never below 16px (Material Body Large) */
   --fs-label: clamp(14px, calc(var(--content) * .0014 + 12.2px), 15px);  /* 14px on 16", 15px on 27" */
   --fs-sub: clamp(19px, calc(var(--content) * .012), 24px);
   --fs-btn: clamp(15px, calc(var(--content) * .009), 18px);
