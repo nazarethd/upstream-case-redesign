@@ -82,11 +82,11 @@ header .button-secondary, header .nav-cta a, header .nav-cta a > span, header .n
 .rd-big, .rd-quote blockquote p { font-size: var(--l); line-height: 1.1; letter-spacing: -.022em; font-weight: 500; }
 .rd-block h3 { font-size: var(--m); line-height: 1.2; letter-spacing: -.015em; font-weight: 500; }
 .rd-copy p, .rd-hero-copy p, .rd-block-body p, .rd-list li, .rd-facts dd { font-size: var(--body); line-height: 1.5; }
-.rd-h2, .rd-author strong { font-size: var(--small); line-height: 1.5; font-weight: 500; }
-.rd-facts dt, .rd-author span { font-size: var(--label); line-height: 1.4; }
+.rd-h2 { font-size: var(--small); line-height: 1.5; font-weight: 500; }
+.rd-facts dt { font-size: var(--label); line-height: 1.4; }
 
 .rd-copy p, .rd-hero-copy p, .rd-block-body p, .rd-list li { color: var(--ink-2); }
-.rd-facts dt, .rd-author span { color: var(--ink-3); }
+.rd-facts dt { color: var(--ink-3); }
 .rd-facts dd { font-weight: 500; }
 .rd-copy p + p { margin-top: 18px; }
 
@@ -168,9 +168,11 @@ header .button-secondary, header .nav-cta a, header .nav-cta a > span, header .n
 
 /* Feedback */
 .rd-quote blockquote p { max-width: 24em; }
-.rd-author { display: flex; align-items: center; gap: 14px; margin-top: 32px; }
-.rd-author img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
-.rd-author strong { display: block; }
+/* author: name at body size, role one step down in the darker grey, so the credit reads under a large quote */
+.rd-author { display: flex; align-items: center; gap: 16px; margin-top: 36px; }
+.rd-author img { flex: none; width: clamp(52px, calc(var(--content) * .03), 60px); height: clamp(52px, calc(var(--content) * .03), 60px); border-radius: 50%; object-fit: cover; }
+.rd-author strong { display: block; font-size: var(--body); line-height: 1.3; font-weight: 500; }
+.rd-author span { font-size: var(--small); line-height: 1.45; color: var(--ink-2); }
 .rd-author a:hover { color: var(--accent); }
 
 /* CTA: one large link, lower and larger than the statements */
