@@ -1,0 +1,18 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="775.682" height="672.23" viewBox="0 0 775.682 672.23" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Union">
+<use xlink:href="#stroke0_0_17" fill="url(#paint0_linear_0_17)"/>
+<use xlink:href="#stroke0_0_17" fill="url(#paint1_linear_0_17)" fill-opacity="0.25"/>
+<use xlink:href="#stroke0_0_17" fill="#00BEAA" fill-opacity="0.04"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_17" x1="387.705" y1="395.999" x2="387.705" y2="-25.6375" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#F9F9F9"/>
+</linearGradient>
+<linearGradient id="paint1_linear_0_17" x1="387.705" y1="-25.6375" x2="387.705" y2="672.231" gradientUnits="userSpaceOnUse">
+<stop stop-color="#798485"/>
+<stop offset="1" stop-color="#798485" stop-opacity="0"/>
+</linearGradient>
+<path id="stroke0_0_17" d="M775.682 548.165C775.682 606.65 775.682 635.893 757.513 654.062C739.344 672.23 710.101 672.23 651.616 672.23H124.065C65.5805 672.23 36.3379 672.23 18.169 654.062C0 635.893 0 606.65 0 548.165V124.065C0 65.5805 0 36.3379 18.169 18.169C36.3379 0 65.5805 0 124.065 0H301.046C310.606 0 315.386 0 319.827 0.645839C335.251 2.88907 349.265 10.8563 359.082 22.9626C361.908 26.4481 364.353 30.5556 369.243 38.7705C374.133 46.9855 376.577 51.0929 379.404 54.5784C389.22 66.6847 403.235 74.6519 418.659 76.8952C423.099 77.541 427.879 77.541 437.439 77.541H651.616C710.101 77.541 739.344 77.541 757.513 95.71C775.682 113.879 775.682 143.121 775.682 201.607V548.165Z"/>
+</defs>
+</svg>

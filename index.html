@@ -325,9 +325,15 @@
   </section>
 
   <div class="rd-gallery">
-    <figure class="rd-media rd-full" data-video>
-      <div class="rd-frame" style="aspect-ratio:2880/1620"><video loop playsinline muted preload="metadata" src="https://www.datocms-assets.com/22695/1757008000-7-upstream-exp-2880-1620.mp4"></video></div>
-    </figure>
+    <section class="rd-scrub" data-scrub-sec data-mask data-dur="19.25">
+      <div data-scrub-pin>
+        <div class="rd-scrub-media" data-media style="aspect-ratio:2880/1620">
+          <video data-scrub data-src="media/upstream-exp.mp4" muted playsinline preload="none"></video>
+          <canvas aria-hidden="true"></canvas>
+        </div>
+      </div>
+      <div data-scrub-run aria-hidden="true"></div>
+    </section>
     <figure class="rd-media rd-full" data-video>
       <div class="rd-frame" style="aspect-ratio:2880/1620"><video loop playsinline muted preload="metadata" src="https://www.datocms-assets.com/22695/1757008147-8-upsteam-user-test-2880-1620.mp4"></video></div>
     </figure>
@@ -384,8 +390,120 @@
     <figure class="rd-media " data-video>
       <div class="rd-frame is-crop" style="aspect-ratio:1432/1620;--cx:0.00035;--cy:0;--cw:0.49722;--ch:1"><video loop playsinline muted preload="metadata" src="https://www.datocms-assets.com/22695/1757008729-13-upstream-folders-anim-2880-1620.mp4"></video></div>
     </figure>
-    <figure class="rd-media " data-video>
-      <div class="rd-frame is-crop" style="aspect-ratio:1432/1620;--cx:0.50278;--cy:0;--cw:0.49722;--ch:1"><video loop playsinline muted preload="metadata" src="https://www.datocms-assets.com/22695/1757008729-13-upstream-folders-anim-2880-1620.mp4"></video></div>
+    <figure class="rd-media rd-embed">
+      <div class="rd-frame" data-embed-box data-design-w="1440" data-bg="white" data-title="Photo folder" style="aspect-ratio:1432/1620">
+        <template><style>
+  /* Folder interaction (Figma "Upstream", section 18690:27200). Stage = the 1440x1620 Figma frame, scaled to fit. */
+  html, body { background: #fff; }
+  .stage { position: absolute; left: 0; top: 0; width: 1440px; height: 1620px; transform-origin: 0 0; overflow: hidden; }
+  .layer { position: absolute; inset: 0; transform-origin: 720px 789.6px;
+    transition: transform .55s cubic-bezier(.2, .8, .2, 1), filter .8s ease, opacity .8s ease, z-index 0s .14s; }
+
+  /* folder body (behind the photos) */
+  .back { z-index: 1; }
+  .back img { position: absolute; left: 332.295px; top: 504.655px; width: 775.682px; height: 672.23px; transition: opacity .4s ease; }
+  .back .is-open-art { opacity: 0; }
+
+  /* photos: clipped to the folder box while they are inside it */
+  .cards { z-index: 2; clip-path: inset(0 0 442.7px 0); }
+  .card { position: absolute; overflow: hidden; border-radius: 39.475px;
+    box-shadow: 0 0 0 1.645px rgba(99, 112, 113, .15), 3.29px -3.29px 6.579px 0 rgba(99, 112, 113, .2), 6.579px -6.579px 19.738px 3.29px rgba(99, 112, 113, .1);
+    transition: left .9s cubic-bezier(.16, 1, .3, 1), top .9s cubic-bezier(.16, 1, .3, 1), width .9s cubic-bezier(.16, 1, .3, 1),
+      height .9s cubic-bezier(.16, 1, .3, 1), border-radius .9s ease, box-shadow .9s ease, opacity .6s ease,
+      transform .52s cubic-bezier(.2, .8, .2, 1);
+    transition-delay: var(--d, 0ms); }
+  .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .c-back  { left: 552.518px; top: 619.28px;  width: 493.442px; height: 698.287px; --rise: -88.9px; --hd: 140ms; }
+  .c-mid   { left: 473.564px; top: 671.914px; width: 493.442px; height: 698.287px; --rise: -70.5px; --hd: 70ms; }
+  .c-front { left: 394.615px; top: 724.55px;  width: 493.442px; height: 698.287px; --rise: -52px;   --hd: 0ms; }
+  /* the three extra photos wait, small and hidden, in the middle of the folder */
+  .c-x { opacity: 0; border-radius: 42.75px; }
+  .c-405 { left: 622px;   top: 724px; width: 196px; height: 131px; }
+  .c-406 { left: 617px;   top: 712px; width: 206px; height: 155px; }
+  .c-401 { left: 599px;   top: 709px; width: 241px; height: 161px; }
+
+  /* folder pocket (in front of the photos) */
+  .front { z-index: 3; }
+  .pocket { position: absolute; left: 333.08px; top: 886.8px; width: 775.681px; height: 288.11px;
+    background: linear-gradient(#d0dbda, #d0dbda); border-radius: 31.397px 31.397px 61.87px 61.87px;
+    transform-origin: 50% 100%; transition: transform .55s cubic-bezier(.2, .8, .2, 1), background .4s ease; }
+
+  /* ── state 2: hover / focus ── */
+  .is-hover .layer { transform: scale(1.0829); }
+  .is-hover .back .is-open-art { opacity: 1; }
+  .is-hover .card:not(.c-x) { transform: translateY(var(--rise)); transition-delay: var(--hd); }
+  .is-hover .pocket { transform: perspective(1400px) rotateX(-34deg); background: linear-gradient(#e2e9e8, #bccdcb); }
+
+  /* ── state 3: open ── */
+  .is-open .back, .is-open .front { transform: scale(1.12); filter: blur(38px); opacity: .55; }
+  .is-open .front { z-index: 0; }
+  .is-open .cards { clip-path: none; }
+  .is-open .card { transform: none; border-radius: 42.75px; box-shadow: 0 21px 67.7px 0 rgba(32, 50, 51, .1); opacity: 1;
+    animation: depth .9s cubic-bezier(.16, 1, .3, 1) both; animation-delay: var(--d, 0ms); }
+  .is-open .c-front { left: 988px;  top: 1403px; width: 390px; height: 585px; --d: 0ms; }
+  .is-open .c-mid   { left: 173px;  top: 1095px; width: 317px; height: 562px; --d: 60ms; }
+  .is-open .c-back  { left: 1107px; top: 76px;   width: 412px; height: 432px; --d: 120ms; }
+  .is-open .c-405   { left: 332px;  top: -142px; width: 653px; height: 436px; --d: 180ms; }
+  .is-open .c-406   { left: -116px; top: 222px;  width: 688px; height: 515px; --d: 240ms; }
+  .is-open .c-401   { left: 869px;  top: 785px;  width: 804px; height: 536px; --d: 300ms; }
+  /* photos come out of the blurred folder: blurred deep inside, sharp once they arrive */
+  @keyframes depth { from { filter: blur(18px); } to { filter: blur(0); } }
+
+  /* the folder itself is the control */
+  .hit { position: absolute; left: 300px; top: 470px; width: 840px; height: 740px; z-index: 5; border: 0; padding: 0;
+    background: transparent; cursor: pointer; border-radius: 60px; }
+  .hit:focus-visible { outline: 6px solid #0a8f6a; outline-offset: 12px; }
+  .is-open .hit { left: 0; top: 0; width: 1440px; height: 1620px; border-radius: 0; cursor: zoom-out; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .layer, .card, .pocket, .back img { transition-duration: .01s !important; transition-delay: 0s !important; }
+    .is-open .card { animation: none; }
+  }
+</style>
+
+<div class="stage" id="stage">
+  <div class="layer back">
+    <img src="assets/folder/folder-back.svg" alt="">
+    <img class="is-open-art" src="assets/folder/folder-back-open.svg" alt="">
+  </div>
+  <div class="layer cards">
+    <div class="card c-x c-405"><img src="assets/folder/photo-303405.png" alt="" decoding="async"></div>
+    <div class="card c-back"><img src="assets/folder/doc-back.png" alt="" decoding="async"></div>
+    <div class="card c-mid"><img src="assets/folder/doc-mid.png" alt="" decoding="async"></div>
+    <div class="card c-front"><img src="assets/folder/doc-front.png" alt="" decoding="async"></div>
+    <div class="card c-x c-406"><img src="assets/folder/photo-303406.png" alt="" decoding="async"></div>
+    <div class="card c-x c-401"><img src="assets/folder/photo-303401.png" alt="" decoding="async"></div>
+  </div>
+  <div class="layer front"><div class="pocket"></div></div>
+  <button class="hit" id="hit" type="button" aria-expanded="false" aria-label="Open the photo folder"></button>
+</div>
+
+<script>
+  (function () {
+    var stage = document.getElementById('stage'), hit = document.getElementById('hit');
+    // fit the 1440x1620 Figma frame into the frame, centred
+    function fit() {
+      var k = Math.min(innerWidth / 1440, innerHeight / 1620);
+      stage.style.transform = 'translate(' + (innerWidth - 1440 * k) / 2 + 'px,' + (innerHeight - 1620 * k) / 2 + 'px) scale(' + k + ')';
+    }
+    fit(); addEventListener('resize', fit);
+
+    function setHover(on) { if (!stage.classList.contains('is-open')) stage.classList.toggle('is-hover', on); }
+    function setOpen(on) {
+      stage.classList.toggle('is-open', on);
+      if (on) stage.classList.remove('is-hover');
+      hit.setAttribute('aria-expanded', String(on));
+      hit.setAttribute('aria-label', on ? 'Put the photos back into the folder' : 'Open the photo folder');
+    }
+    hit.addEventListener('pointerenter', function () { setHover(true); });
+    hit.addEventListener('pointerleave', function () { setHover(false); });
+    hit.addEventListener('focus', function () { setHover(true); });
+    hit.addEventListener('blur', function () { setHover(false); });
+    hit.addEventListener('click', function () { setOpen(!stage.classList.contains('is-open')); });
+  })();
+</script>
+</template>
+      </div>
     </figure>
     </div>
     <figure class="rd-media rd-full">
@@ -786,6 +904,8 @@
                 
             
 
+<script>window.ScrollMedia = { options: { nav: "header", rate: 0.26, maxFrames: 300 } };</script>
+<script src="scroll-media.js" defer></script>
 <script src="page.js"></script>
 </body>
         </html>

@@ -1,5 +1,13 @@
 // Redesign behaviour layer
 (function () {
+  // Custom HTML blocks run in a sandboxed srcdoc iframe, where relative URLs don't resolve against this page.
+  // Make them absolute before scroll-media.js (deferred, so it runs after this) builds the frames.
+  document.querySelectorAll('[data-embed-box] template').forEach(function (t) {
+    t.innerHTML = t.innerHTML.replace(/\b(src|href)="(?![a-z]+:|#|\/\/)([^"]+)"/gi, function (m, attr, url) {
+      return attr + '="' + new URL(url, document.baseURI).href + '"';
+    });
+  });
+
   // Video plays only while on screen
   var vio = new IntersectionObserver(function (es) {
     es.forEach(function (e) {

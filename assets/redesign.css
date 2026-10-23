@@ -133,6 +133,12 @@ header .button-secondary, header .nav-cta a, header .nav-cta a > span, header .n
 .rd-half { display: grid; grid-template-columns: 1fr 1fr; gap: var(--media-gap); }
 .rd-half .rd-frame { aspect-ratio: 8 / 9; }
 .rd-half--right > .rd-media { grid-column: 2; }
+/* scroll video with mask (scroll-media.js sets the pin and the cut-out) */
+.rd-scrub { position: relative; }
+.rd-scrub-media { position: relative; overflow: hidden; border-radius: var(--round); background: #e9e9e9; }
+.rd-scrub-media > video, .rd-scrub-media > canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+/* custom HTML half: white like the Figma frame */
+.rd-embed .rd-frame { background: #fff; }
 
 /* ---------- Sections ---------- */
 .rd-section { margin-top: var(--space); }

@@ -1,0 +1,23 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="775.409" height="775.409" viewBox="0 0 775.409 775.409" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="200/Folder docs" clip-path="url(#clip0_0_4)">
+<g id="Union">
+<use xlink:href="#stroke0_0_4" fill="url(#paint0_linear_0_4)"/>
+<use xlink:href="#stroke0_0_4" fill="url(#paint1_linear_0_4)" fill-opacity="0.25"/>
+<use xlink:href="#stroke0_0_4" fill="#00BEAA" fill-opacity="0.04"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_4" x1="387.705" y1="498.779" x2="387.705" y2="77.1423" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#F9F9F9"/>
+</linearGradient>
+<linearGradient id="paint1_linear_0_4" x1="387.705" y1="77.1423" x2="387.705" y2="775.01" gradientUnits="userSpaceOnUse">
+<stop stop-color="#798485"/>
+<stop offset="1" stop-color="#798485" stop-opacity="0"/>
+</linearGradient>
+<clipPath id="clip0_0_4">
+<rect width="775.409" height="775.409" fill="white"/>
+</clipPath>
+<path id="stroke0_0_4" d="M775.682 650.945C775.682 709.43 775.682 738.672 757.513 756.841C739.344 775.01 710.101 775.01 651.616 775.01H124.066C65.5805 775.01 36.338 775.01 18.169 756.841C2.46758e-05 738.672 2.46758e-05 709.43 2.46758e-05 650.945V226.845C2.46758e-05 168.36 2.46758e-05 139.118 18.169 120.949C36.338 102.78 65.5805 102.78 124.066 102.78H301.046C310.606 102.78 315.386 102.78 319.827 103.426C335.251 105.669 349.265 113.636 359.082 125.742C361.908 129.228 364.353 133.335 369.243 141.55C374.133 149.765 376.577 153.873 379.404 157.358C389.22 169.464 403.235 177.432 418.659 179.675C423.099 180.321 427.879 180.321 437.439 180.321H651.616C710.101 180.321 739.344 180.321 757.513 198.49C775.682 216.659 775.682 245.901 775.682 304.386V650.945Z"/>
+</defs>
+</svg>
